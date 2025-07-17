@@ -9,7 +9,7 @@ using namespace std;
 #define eb emplace_back
 
 using LL = long long;
-const LL INF = 0x3f3f3f3f3f3f3f3f;
+const LL INF = 0x3f3f3f3f3f3f3f3fll;
 #define g0(X) (get<0>(X))
 #define g1(X) (get<1>(X))
 #define g2(X) (get<2>(X))
@@ -19,22 +19,22 @@ int main() {
 
     string text,patt;
     cin>>text>>patt;
-    vector<int> pi(patt.size());
+    vector<int> PMT(patt.size());
 
     int i=1,pl=0;
     while (i<(int)patt.size()){
         if (patt[pl]==patt[i]){
             ++pl;
-            pi[i]=pl;
+            PMT[i]=pl;
             ++i;
         }
         else{
             if (pl==0){
-                pi[i]=0;
+                PMT[i]=0;
                 ++i;
             }
             else{
-                pl=pi[pl-1];
+                pl=PMT[pl-1];
             }
         }
     }
@@ -48,7 +48,7 @@ int main() {
             ++j;
         }
         else if (j>0){
-            j=pi[j-1];
+            j=PMT[j-1];
         }
         else{
             ++i;
@@ -56,7 +56,7 @@ int main() {
 
         if (j==(int)patt.size()){
             ++cnt;
-            j=pi[j-1];
+            j=PMT[j-1];
         }
     }
     cout<<cnt;
