@@ -21,7 +21,7 @@ int main() {
     cin>>text>>patt;
     vector<int> PMT(patt.size());
 
-    int i=1,pl=0;
+    int i=1,pl=0; //prefix length
     while (i<(int)patt.size()){
         if (patt[pl]==patt[i]){
             ++pl;
@@ -62,4 +62,5 @@ int main() {
     cout<<cnt;
     return 0;
 }
+
 
